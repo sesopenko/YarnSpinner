@@ -245,7 +245,8 @@ namespace Yarn.Compiler
 
         private void InsertToken(int startIndex, int stopIndex, string text, int type, int line, int column)
         {
-            var tokenFactorySourcePair = Tuple.Create((ITokenSource)this, (ICharStream)this.InputStream);
+            var tokenFactorySourcePair =
+                new Antlr4.Runtime.Sharpen.Tuple<ITokenSource, ICharStream>(this, (ICharStream)this.InputStream);
 
             CommonToken token = new CommonToken(tokenFactorySourcePair, type, YarnSpinnerLexer.DefaultTokenChannel, startIndex, stopIndex)
             {

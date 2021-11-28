@@ -127,7 +127,7 @@ public partial class YarnSpinnerV1Lexer : Lexer {
 	    {
 	        int stop = CharIndex - 1;
 	        int start = text.Length == 0 ? stop : stop - text.Length + 1;
-	        var tokenFactorySourcePair = Tuple.Create((ITokenSource)this, (ICharStream)InputStream);
+            var tokenFactorySourcePair = new Antlr4.Runtime.Sharpen.Tuple<ITokenSource, ICharStream>((ITokenSource)this, (ICharStream)InputStream);
 	        return new CommonToken(tokenFactorySourcePair, type, DefaultTokenChannel, start, stop);
 	    }
 
